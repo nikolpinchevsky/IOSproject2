@@ -200,12 +200,15 @@ class GameViewController: UIViewController {
         if playerScore > pcScore {
             resultVC.winnerText = "Winner: \(playerName)"
             resultVC.scoreText = "score: \(playerScore)"
-        } else {
+        } else if pcScore > playerScore {
             resultVC.winnerText = "Winner: PC"
             resultVC.scoreText = "score: \(pcScore)"
+        } else {
+            resultVC.winnerText = "It's a Tie!"
+            resultVC.scoreText = "score: \(playerScore) - \(pcScore)"
         }
 
         resultVC.modalPresentationStyle = .fullScreen
         present(resultVC, animated: true)
-    }
+    } 
 }
